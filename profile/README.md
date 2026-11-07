@@ -4,84 +4,71 @@
 
 ### Clarity, without the cloud.
 
-Private AI-writing, source-similarity, and factual-claim analysis inside your browser.
+PDF-first document review, with evidence you can inspect and a local desktop companion.
 
-**[Get the extension](https://veritylocal.github.io/project-final-deployment/)** · **[Download v1.0.0](https://github.com/VerityLocal/project-final-deployment/releases/download/v1.0.0/verity-local-extension-v1.0.0.zip)** · **[Explore the research](https://github.com/VerityLocal/project-build-up)**
+**[Download for macOS & Windows](https://veritylocal.github.io/)** · **[Source](https://github.com/VerityLocal/Main)** · **[Development releases](https://github.com/VerityLocal/Main/releases)**
 
-No account. No API key. No Python, terminal, server, or backend pairing.
+No account or API key. Automatic runtime setup, pairing and helper startup.
 
 </div>
 
 ---
 
-## Your words. Your browser. Your control.
+## Review the document. Understand the evidence.
 
-Verity Local is an open-source, browser-only text-analysis extension. Paste text
-or read the current page, choose your analysis engines, and explore the findings
-in a side panel. Your document and reference passages stay in your browser.
+- Read the active PDF, including supported embedded PDFs, or a read-only website.
+- Inspect source-overlap highlights, attributed links and search coverage.
+- Export a JSON or text report; clear the panel when finished.
+- Keep authorship inference local. Web source comparison requires explicit consent
+  and shares short excerpts with search services.
 
-| Engine | What it helps you explore |
-| --- | --- |
-| **AI writing** | Document and sentence-level signals from an English research-pilot detector—not proof of authorship. |
-| **Source similarity** | Textual and semantic overlap with passages you supply in your local knowledge library. |
-| **Factual claims** | Experimental, evidence-dependent claim labels based on your supplied references. |
+## Download and install
 
-There is **no cloud inference, external search, or analytics in the extension**.
-Models download from versioned GitHub releases on first use, are checked against
-pinned sizes and SHA-256 hashes, and are cached in your browser profile. Selected
-engines work offline once their models are cached. GitHub receives ordinary
-download requests and your IP address—not your document text.
+**[Download the browser extension ZIP](https://github.com/VerityLocal/Main/releases/download/v0.2.0-dev.1/Verity-Extension.zip)**
+— one shared Chrome/Edge package for macOS and Windows. **The local companion is
+still required** for PDF extraction and analysis. Companion installers already
+include the extension; use this ZIP to load or update it separately.
 
-## Install in four steps
+| Platform | Requirements | Development download |
+| --- | --- | --- |
+| **macOS** | macOS 14+, Intel or Apple Silicon | [Download ZIP](https://github.com/VerityLocal/Main/releases/download/v0.2.0-dev.1/Verity-macOS.zip) |
+| **Windows** | Windows 10/11 x64 | [Download ZIP](https://github.com/VerityLocal/Main/releases/download/v0.2.0-dev.1/Verity-Windows.zip) |
 
-1. **[Download the extension ZIP](https://github.com/VerityLocal/project-final-deployment/releases/download/v1.0.0/verity-local-extension-v1.0.0.zip)** and extract it.
-2. Open `chrome://extensions`, `brave://extensions`, or `edge://extensions` on your desktop browser.
-3. Enable **Developer mode**, click **Load unpacked**, and select the extracted folder containing `manifest.json`.
-4. Pin **Verity Local**, click its icon, paste text or choose **Read current page**, then **Analyze locally**.
+1. Extract the ZIP and open the installer if the operating system permits it.
+2. Approve installation; the runtime and permitted local models are provisioned
+   automatically where hardware permits.
+3. Enable Developer mode in Chrome/Edge and **Load unpacked** using the extension
+   folder shown in Finder/Explorer, or the **Verity Extension** folder from the
+   separate extension ZIP. Pairing and helper startup/restart are automatic.
 
-**Requirements:** desktop Chrome, Brave, or Edge 116+ with WebAssembly SIMD and
-side-panel support. Firefox, Safari, and mobile are not supported. This is a
-manual, unpacked installation—not a browser-store listing.
+First installation requires internet: about **1.9 GB** of Desklib/BGE downloads on
+supported machines, plus runtime/browser/ML dependencies. The Falcon pair adds
+about **29 GB** only on machines with 64 GiB+ RAM. No terminal, Python setup or token entry is
+needed for installer users. Firefox compatibility is experimental; Linux, Safari,
+mobile, native Windows ARM64 and 32-bit Windows are not supported.
 
-**First use:** the extension ZIP is about **4.8 MiB**. Models download separately:
-about **575 MB** for AI detection, or **1.44 GB** for all models. Keep the side panel
-open during setup and analysis; downloads can take several minutes and FP32
-inference requires substantial free memory.
+### Development status — please read
 
-**[Full installation guide & download website →](https://veritylocal.github.io/project-final-deployment/)**
+Both installers are **unsigned development builds**, not production releases.
+Operating systems may warn or block them. **Do not disable OS security.** Windows
+installation/browser integration and Intel macOS execution are not yet tested.
+Signed installers are not yet available.
 
-## Explore the project
+**AI percentages remain Unavailable until independently calibrated.** Desklib and
+BGE-small use fixed revisions and verified hashes. The full Binoculars pair has
+not been tested on the 16 GiB Mac; GPTSniffer checkpoint permission and a production
+known-AI code corpus remain unresolved. Setup completion is not inference readiness.
+No detector accuracy or fine-tuning claim is made. Source overlap is
+evidence to review, not proof of plagiarism or misconduct; missing coverage does
+not establish originality. Do not use results as authorship proof or for discipline.
 
-| Repository | What's inside |
-| --- | --- |
-| **[project-final-deployment](https://github.com/VerityLocal/project-final-deployment)** | Directly loadable MV3 browser extension, downloadable releases, model card, and the download website. |
-| **[project-build-up](https://github.com/VerityLocal/project-build-up)** | Source and pinned dependencies, training, dataset preparation, evaluations, browser-model releases, verification evidence, and preserved development history. |
+## Project
 
-- [Extension releases](https://github.com/VerityLocal/project-final-deployment/releases)
-- [Versioned browser models](https://github.com/VerityLocal/project-build-up/releases/tag/browser-models-v1)
-- [Browser architecture & reproduction](https://github.com/VerityLocal/project-build-up/blob/main/docs/browser-native.md)
-- [Real-browser verification evidence](https://github.com/VerityLocal/project-build-up/tree/main/reports/browser-native)
-
-## A signal, not a verdict
-
-This is a **research pilot**, not authorship, plagiarism, or misconduct proof.
-
-- The detector's original held-out document accuracy is **79.75%**, with a
-  **23.14% human false-positive rate** at threshold 0.5. These are bounded pilot
-  measurements, not a guarantee for new writing or domains.
-- Its document score estimates whether a document contains annotated AI content,
-  including mixed writing—not the percentage of AI-written words. English input
-  is limited to **512 tokens / 128 sentences** without silent truncation.
-- Similarity and claim outputs are experimental and uncalibrated. You supply
-  the references and judge their trust. A source URL is only a citation; it is
-  not fetched. Missing evidence does **not** establish that a claim is false.
-- Page reading inspects rendered DOM. Google Docs canvas, closed shadow roots,
-  and unrendered virtualized content are unsupported; paste text instead.
-- Do not use findings as authorship proof or for disciplinary decisions.
-
-Read the **[model card](https://github.com/VerityLocal/project-final-deployment/blob/main/MODEL_CARD.md)**
-and **[full extension limits](https://github.com/VerityLocal/project-final-deployment#limits)**
-before relying on results.
+- [Product source, builds and tests](https://github.com/VerityLocal/Main)
+- [Download website](https://veritylocal.github.io/)
+- [Release/platform limitations](https://github.com/VerityLocal/Main/blob/main/docs/DISTRIBUTION.md)
+- [Privacy and security](https://github.com/VerityLocal/Main/blob/main/docs/SECURITY.md)
+- [Model and calibration guidance](https://github.com/VerityLocal/Main/blob/main/docs/MODELS.md)
 
 ## Built by
 
@@ -90,9 +77,7 @@ before relying on results.
 B.Tech in Artificial Intelligence & Data Science (AI&DS)<br>
 **K. J. Somaiya School of Engineering, Mumbai**
 
-Original code is [MIT licensed](https://github.com/VerityLocal/project-final-deployment/blob/main/LICENSE).
-Upstream assets retain their own licenses; see
-[third-party notices](https://github.com/VerityLocal/project-final-deployment/blob/main/THIRD_PARTY_NOTICES.md).
+Upstream dependencies and optional model assets retain their own licenses.
+Required installer/compiler notices are retained; restricted models are not bundled.
 
-Found a bug? **[Open an extension issue](https://github.com/VerityLocal/project-final-deployment/issues)**
-or **[a research issue](https://github.com/VerityLocal/project-build-up/issues)**.
+Found a bug? **[Open an issue](https://github.com/VerityLocal/Main/issues)**.

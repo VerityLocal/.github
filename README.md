@@ -6,6 +6,6 @@
 This repository must be named **`.github`**, belong to **VerityLocal**, and be
 public for GitHub to show the organization profile. Edit the profile README to
 update the overview; keep release links and limitations aligned with the
-extension and research repositories.
+product repository.
 
-Download website: https://veritylocal.github.io/project-final-deployment/
+Download website: https://veritylocal.github.io/
